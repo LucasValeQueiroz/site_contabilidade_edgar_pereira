@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato | Contabilidade Edgar Pereira</title>
+    <meta name="description" content="Entre em contato com a Contabilidade Edgar Pereira. Teremos o maior prazer em atendê-lo e oferecer as melhores soluções contábeis para sua empresa.">
+    
+    <!-- CSS & Fonts -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-contact">
+                <a href="tel:+553732220422"><i class="fa-solid fa-phone"></i> (37) 3222-0422</a>
+                <a href="mailto:edgar@edgarpereira.com.br"><i class="fa-solid fa-envelope"></i> edgar@edgarpereira.com.br</a>
+                <span><i class="fa-solid fa-location-dot"></i> Divinópolis/MG</span>
+            </div>
+            <div class="social-links">
+                <a href="#" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">
+                <span class="brand-name">Edgar Pereira</span>
+                <span class="brand-subtitle">Contabilidade • CRC-MG 007241/O-0</span>
+            </a>
+            
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="empresa.html">Empresa</a>
+                <a href="servicos.html">Serviços</a>
+                <a href="noticias.html">Notícias</a>
+                <a href="contato.html" class="active">Contato</a>
+                <a href="https://packup.alterdata.com.br" target="_blank" class="btn-alterdata"><i class="fa-solid fa-cloud"></i> Portal Alterdata</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Inner Hero -->
+    <header class="hero-inner">
+        <div class="hero-bg"></div>
+        <div class="container reveal">
+            <div class="breadcrumb">
+                <a href="index.html">Home</a> <i class="fa-solid fa-chevron-right" style="font-size: 0.7em;"></i> <span>Contato</span>
+            </div>
+            <h1 class="hero-title">Entre em <span>Contato</span></h1>
+            <p class="hero-description">Teremos o maior prazer em atendê-lo. Envie sua mensagem ou faça-nos uma visita.</p>
+        </div>
+    </header>
+
+    <!-- Contact Content -->
+    <section class="section page-content">
+        <div class="container">
+            <div class="contact-grid">
+                
+                <!-- Form -->
+                <div class="reveal-left">
+                    <h2 class="section-title" style="font-size: 2rem; margin-bottom: var(--space-xl);">Envie-nos uma <span>Mensagem</span></h2>
+                    
+                    <form method="POST" id="formcontato" class="contact-form glass-card">
+                        <div class="form-group">
+                            <input type="text" name="nome" placeholder="Seu Nome Completo" required>
+                        </div>
+                        
+                        <div class="form-group" style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md);">
+                            <input type="email" name="email" placeholder="Seu E-mail" required>
+                            <input type="text" name="telefone" placeholder="Seu Telefone">
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="text" name="assunto" placeholder="Assunto da Mensagem" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <textarea name="mensagem" placeholder="Como podemos ajudar você hoje?" required></textarea>
+                        </div>
+                        
+                        <div class="form-group" style="display:flex; align-items:center; gap: 10px;">
+                            <img src="https://via.placeholder.com/185x50/1e3a5f/d4af37?text=Captcha" alt="Captcha" style="border-radius: var(--radius-sm); border: 1px solid var(--glass-border);">
+                            <input type="text" name="palavra" placeholder="Digite o código" required style="flex: 1;">
+                        </div>
+                        
+                        <div class="form-buttons">
+                            <button type="submit" class="btn btn-primary"><i class="fa-regular fa-paper-plane"></i> Enviar Mensagem</button>
+                            <button type="reset" class="btn btn-secondary"><i class="fa-solid fa-rotate-left"></i> Limpar</button>
+                        </div>
+                    </form>
+                </div>
+                
+                <!-- Info Cards -->
+                <div class="contact-info-cards reveal-right stagger-2">
+                    <div class="contact-info-card">
+                        <div class="info-icon"><i class="fa-solid fa-location-dot"></i></div>
+                        <h4>Nosso Endereço</h4>
+                        <p>Rua Pernambuco, nº 80 - 8º Andar<br>Centro - CEP: 35500-008<br>Divinópolis / MG</p>
+                    </div>
+                    
+                    <div class="contact-info-card">
+                        <div class="info-icon"><i class="fa-solid fa-phone"></i></div>
+                        <h4>Telefone e WhatsApp</h4>
+                        <a href="tel:+553732220422">(37) 3222-0422</a><br>
+                        <a href="https://wa.me/553732220422" target="_blank" style="color: #25D366; font-weight: 500;"><i class="fa-brands fa-whatsapp"></i> Chamar no WhatsApp</a>
+                    </div>
+                    
+                    <div class="contact-info-card">
+                        <div class="info-icon"><i class="fa-solid fa-envelope"></i></div>
+                        <h4>E-mail</h4>
+                        <a href="mailto:edgar@edgarpereira.com.br">edgar@edgarpereira.com.br</a>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <!-- Map -->
+            <div class="map-container reveal stagger-3">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3745.6655638282355!2d-44.8907278!3d-20.1479954!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa0a59df209f051%3A0x1b02c901f9d4498c!2sEdgar+Pereira!5e0!3m2!1spt-BR!2sbr!4v1540303494098" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Links Úteis -->
+    <section class="section section-dark reveal">
+        <div class="container">
+            <span class="section-label">Acesso Rápido</span>
+            <h2 class="section-title">Links <span>Úteis</span></h2>
+            
+            <div class="links-grid" style="margin-top: var(--space-2xl);">
+                <a href="https://www.sitecontabil.com.br/certidoes.htm" target="_blank" class="link-card reveal stagger-1">
+                    <div class="link-icon"><i class="fa-solid fa-certificate"></i></div>
+                    <div>
+                        <h4>Certidões Negativas</h4>
+                        <span>Dívida Ativa, Simples, INSS</span>
+                    </div>
+                </a>
+                <a href="https://www.sitecontabil.com.br/agendas" target="_blank" class="link-card reveal stagger-2">
+                    <div class="link-icon"><i class="fa-regular fa-calendar-days"></i></div>
+                    <div>
+                        <h4>Agendas de Obrigações</h4>
+                        <span>Estadual, Trabalhista, Federal</span>
+                    </div>
+                </a>
+                <a href="https://www.sitecontabil.com.br/facilitador.htm" target="_blank" class="link-card reveal stagger-3">
+                    <div class="link-icon"><i class="fa-solid fa-link"></i></div>
+                    <div>
+                        <h4>Facilitador Contábil</h4>
+                        <span>Links diversos da área</span>
+                    </div>
+                </a>
+                <a href="https://www.sitecontabil.com.br/formularios/" target="_blank" class="link-card reveal stagger-4">
+                    <div class="link-icon"><i class="fa-solid fa-file-lines"></i></div>
+                    <div>
+                        <h4>Formulários Diversos</h4>
+                        <span>DARF, REDARF, Rescisões</span>
+                    </div>
+                </a>
+                <a href="https://www.sitecontabil.com.br/tabelas_praticas.htm" target="_blank" class="link-card reveal stagger-5">
+                    <div class="link-icon"><i class="fa-solid fa-table"></i></div>
+                    <div>
+                        <h4>Tabelas Práticas</h4>
+                        <span>Simples, IR, Alíquotas</span>
+                    </div>
+                </a>
+                <a href="https://www.sitecontabil.com.br/modelos_contrato.htm" target="_blank" class="link-card reveal stagger-6">
+                    <div class="link-icon"><i class="fa-solid fa-file-contract"></i></div>
+                    <div>
+                        <h4>Modelos de Documentos</h4>
+                        <span>Contratos, Procurações, etc.</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="brand-name">Contabilidade Edgar Pereira</div>
+                    <div class="brand-crc">CRC-MG 007241/O-0</div>
+                    <p>Soluções em contabilidade para o sucesso do seu negócio. Mais de 25 anos de experiência entregando excelência e confiança.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Mapa do Site</h4>
+                    <a href="index.html">Home</a>
+                    <a href="empresa.html">Sobre a Empresa</a>
+                    <a href="servicos.html">Nossos Serviços</a>
+                    <a href="noticias.html">Notícias Empresariais</a>
+                    <a href="contato.html">Fale Conosco</a>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Contato</h4>
+                    <a href="tel:+553732220422"><i class="fa-solid fa-phone"></i> (37) 3222-0422</a>
+                    <a href="mailto:edgar@edgarpereira.com.br"><i class="fa-solid fa-envelope"></i> edgar@edgarpereira.com.br</a>
+                    <a href="#"><i class="fa-solid fa-location-dot"></i> Rua Pernambuco, 80 - 8º Andar<br>Centro - Divinópolis/MG</a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Contabilidade Edgar Pereira. Todos os direitos reservados.</p>
+                <div class="footer-gov-links">
+                    <a href="http://www.receita.fazenda.gov.br/" target="_blank">Receita Federal</a>
+                    <a href="http://www8.receita.fazenda.gov.br/SimplesNacional/" target="_blank">Simples Nacional</a>
+                    <a href="http://www.mtps.gov.br/" target="_blank">Ministério do Trabalho</a>
+                    <a href="http://www.previdencia.gov.br/" target="_blank">Previdência Social</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Elements -->
+    <a href="https://wa.me/553732220422" target="_blank" class="whatsapp-float" aria-label="WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+    
+    <button class="back-to-top" aria-label="Voltar ao topo">
+        <i class="fa-solid fa-chevron-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+</body>
+</html>
