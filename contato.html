@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contato | Contabilidade Edgar Pereira</title>
-    <meta name="description" content="Entre em contato com a Contabilidade Edgar Pereira. Teremos o maior prazer em atendê-lo e oferecer as melhores soluções contábeis para sua empresa.">
+    <meta name="description" content="Entre em contato com a Contabilidade Edgar Pereira em Divinópolis. Faça-nos uma visita, ligue ou envie uma mensagem.">
     
     <!-- CSS & Fonts -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body>
+<body class="page-content">
     
     <!-- Top Bar -->
     <div class="top-bar">
@@ -59,81 +59,89 @@
     <!-- Inner Hero -->
     <header class="hero-inner">
         <div class="hero-bg"></div>
-        <div class="container reveal">
-            <div class="breadcrumb">
-                <a href="index.html">Home</a> <i class="fa-solid fa-chevron-right" style="font-size: 0.7em;"></i> <span>Contato</span>
+        <div class="container">
+            <div class="breadcrumb reveal">
+                <a href="index.html">Home</a> / <span>Contato</span>
             </div>
-            <h1 class="hero-title">Entre em <span>Contato</span></h1>
-            <p class="hero-description">Teremos o maior prazer em atendê-lo. Envie sua mensagem ou faça-nos uma visita.</p>
+            <h1 class="hero-title reveal stagger-1">Entre em <span>Contato</span></h1>
+            <p class="hero-description reveal stagger-2">Teremos o maior prazer em atendê-lo. Envie sua mensagem ou faça-nos uma visita.</p>
         </div>
     </header>
 
     <!-- Contact Content -->
-    <section class="section page-content">
+    <section class="section reveal">
         <div class="container">
             <div class="contact-grid">
                 
-                <!-- Form -->
-                <div class="reveal-left">
-                    <h2 class="section-title" style="font-size: 2rem; margin-bottom: var(--space-xl);">Envie-nos uma <span>Mensagem</span></h2>
-                    
-                    <form method="POST" id="formcontato" class="contact-form glass-card">
-                        <div class="form-group">
-                            <input type="text" name="nome" placeholder="Seu Nome Completo" required>
-                        </div>
+                <div class="contact-form-container reveal-left stagger-1">
+                    <div class="glass-card">
+                        <span class="section-label">Fale Conosco</span>
+                        <h2 class="section-title" style="font-size: 2rem;">Envie-nos uma <span>Mensagem</span></h2>
                         
-                        <div class="form-group" style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md);">
-                            <input type="email" name="email" placeholder="Seu E-mail" required>
-                            <input type="text" name="telefone" placeholder="Seu Telefone">
-                        </div>
-                        
-                        <div class="form-group">
-                            <input type="text" name="assunto" placeholder="Assunto da Mensagem" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <textarea name="mensagem" placeholder="Como podemos ajudar você hoje?" required></textarea>
-                        </div>
-                        
-                        <div class="form-group" style="display:flex; align-items:center; gap: 10px;">
-                            <img src="https://via.placeholder.com/185x50/1e3a5f/d4af37?text=Captcha" alt="Captcha" style="border-radius: var(--radius-sm); border: 1px solid var(--glass-border);">
-                            <input type="text" name="palavra" placeholder="Digite o código" required style="flex: 1;">
-                        </div>
-                        
-                        <div class="form-buttons">
-                            <button type="submit" class="btn btn-primary"><i class="fa-regular fa-paper-plane"></i> Enviar Mensagem</button>
-                            <button type="reset" class="btn btn-secondary"><i class="fa-solid fa-rotate-left"></i> Limpar</button>
-                        </div>
-                    </form>
+                        <form id="formcontato" method="post" action="https://www.midiasistema.com/scripts/form_site.php" class="contact-form">
+                            <input type="hidden" name="email_cliente" value="edgar@edgarpereira.com.br">
+                            <input type="hidden" name="site_cliente" value="edgarpereira.com.br">
+                            <input type="hidden" name="url_retorno" value="http://www.edgarpereira.com.br/contato.html">
+                            
+                            <div class="form-group">
+                                <input type="text" name="nome" placeholder="Seu Nome Completo" required>
+                            </div>
+                            
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md);">
+                                <div class="form-group">
+                                    <input type="email" name="email" placeholder="Seu E-mail" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="tel" name="telefone" placeholder="Seu Telefone">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <input type="text" name="assunto" placeholder="Assunto da Mensagem" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <textarea name="mensagem" placeholder="Sua Mensagem..." required></textarea>
+                            </div>
+                            
+                            <div class="form-group" style="display: flex; align-items: center; gap: 15px;">
+                                <img src="https://www.midiasistema.com/scripts/captcha.php" alt="Captcha" style="border-radius: var(--radius-sm); height: 42px;">
+                                <input type="text" name="captcha" placeholder="Digite o código" required style="width: auto; flex: 1;">
+                            </div>
+                            
+                            <div class="form-buttons">
+                                <button type="submit" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> Enviar Mensagem</button>
+                                <button type="reset" class="btn btn-secondary">Limpar</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
                 
-                <!-- Info Cards -->
                 <div class="contact-info-cards reveal-right stagger-2">
                     <div class="contact-info-card">
                         <div class="info-icon"><i class="fa-solid fa-location-dot"></i></div>
-                        <h4>Nosso Endereço</h4>
-                        <p>Rua Pernambuco, nº 60 - 8º Andar<br>Centro - CEP: 35500-008<br>Divinópolis / MG</p>
+                        <h4>Endereço</h4>
+                        <p>Rua Pernambuco, nº 60 - 8º Andar<br>Centro - CEP: 35500-008<br>Divinópolis/MG</p>
                     </div>
                     
                     <div class="contact-info-card">
                         <div class="info-icon"><i class="fa-solid fa-phone"></i></div>
-                        <h4>Telefone e WhatsApp</h4>
-                        <a href="tel:+553732220422">(37) 3222-0422</a><br>
-                        <a href="https://wa.me/553732220422" target="_blank" style="color: #25D366; font-weight: 500;"><i class="fa-brands fa-whatsapp"></i> Chamar no WhatsApp</a>
+                        <h4>Telefone</h4>
+                        <p>Fixo: <a href="tel:+553732220422">(37) 3222-0422</a></p>
+                        <p>WhatsApp: <a href="https://wa.me/553732220422" target="_blank">(37) 3222-0422</a></p>
                     </div>
                     
                     <div class="contact-info-card">
                         <div class="info-icon"><i class="fa-solid fa-envelope"></i></div>
                         <h4>E-mail</h4>
-                        <a href="mailto:edgar@edgarpereira.com.br">edgar@edgarpereira.com.br</a>
+                        <p><a href="mailto:edgar@edgarpereira.com.br">edgar@edgarpereira.com.br</a></p>
                     </div>
                 </div>
                 
             </div>
             
-            <!-- Map -->
             <div class="map-container reveal stagger-3">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3745.6655638282355!2d-44.8907278!3d-20.1479954!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa0a59df209f051%3A0x1b02c901f9d4498c!2sEdgar+Pereira!5e0!3m2!1spt-BR!2sbr!4v1540303494098" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3744.407289523293!2d-44.890693524673894!3d-20.158729581283626!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x8613393ab16e4dbb!2sContabilidade+Edgar+Pereira!5e0!3m2!1spt-BR!2sbr!4v1493039600100" width="100%" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
             </div>
         </div>
     </section>

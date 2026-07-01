@@ -4,13 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Notícias Empresariais | Contabilidade Edgar Pereira</title>
-    <meta name="description" content="Acompanhe as principais notícias e atualizações da área contábil, tributária, trabalhista e empresarial.">
+    <meta name="description" content="Acompanhe as principais notícias e atualizações nas áreas contábil, fiscal, trabalhista e empresarial.">
     
     <!-- CSS & Fonts -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        .loading-container {
+            text-align: center;
+            padding: 3rem 0;
+            color: var(--gray-400);
+        }
+        .loading-container i {
+            font-size: 2rem;
+            color: var(--gold-400);
+            margin-bottom: 1rem;
+        }
+    </style>
 </head>
-<body>
+<body class="page-content">
     
     <!-- Top Bar -->
     <div class="top-bar">
@@ -59,22 +72,23 @@
     <!-- Inner Hero -->
     <header class="hero-inner">
         <div class="hero-bg"></div>
-        <div class="container reveal">
-            <div class="breadcrumb">
-                <a href="index.html">Home</a> <i class="fa-solid fa-chevron-right" style="font-size: 0.7em;"></i> <span>Notícias</span>
+        <div class="container">
+            <div class="breadcrumb reveal">
+                <a href="index.html">Home</a> / <span>Notícias</span>
             </div>
-            <h1 class="hero-title">Notícias <span>Empresariais</span></h1>
-            <p class="hero-description">Mantenha-se informado com as novidades da área contábil atualizadas diariamente.</p>
+            <h1 class="hero-title reveal stagger-1">Notícias <span>Empresariais</span></h1>
+            <p class="hero-description reveal stagger-2">Mantenha-se informado com as novidades da área contábil atualizadas diariamente.</p>
         </div>
     </header>
 
-    <!-- News List -->
-    <section class="section page-content">
+    <!-- News List Section -->
+    <section class="section reveal">
         <div class="container">
-            <div id="news-container" class="news-list" style="max-width: 900px; margin: 0 auto; min-height: 400px; text-align: center;">
-                <p style="font-size: 1.2rem; color: var(--gold-500); padding: 3rem 0;">
-                    <i class="fa-solid fa-circle-notch fa-spin"></i> Carregando destaques diários...
-                </p>
+            <div id="news-container" class="news-list">
+                <div class="loading-container">
+                    <i class="fa-solid fa-circle-notch fa-spin"></i>
+                    <p>Carregando destaques diários...</p>
+                </div>
             </div>
         </div>
     </section>
@@ -184,60 +198,58 @@
     <!-- Scripts -->
     <script src="js/main.js"></script>
     <script>
-        // Defina a URL gerada no Google Apps Script aqui (WebApp URL)
         const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyK0BkBo6kklNjmNPV7wHRUzRSc8_sL4r95e6gVfhemsS6OYtiVUzCpNqLwA0wTCwpm/exec';
-
-        function formatarData(dataIso) {
-            if(!dataIso) return '';
-            try {
-                const d = new Date(dataIso);
-                if (isNaN(d.getTime())) return dataIso;
-                const dia = String(d.getUTCDate()).padStart(2, '0');
-                const mes = String(d.getUTCMonth() + 1).padStart(2, '0');
-                const ano = d.getUTCFullYear();
-                return `${dia}/${mes}/${ano}`;
-            } catch(e) {
-                return dataIso;
-            }
+        
+        function formatarData(dataString) {
+            const date = new Date(dataString);
+            return date.toLocaleDateString('pt-BR', {
+                day: '2-digit',
+                month: 'long',
+                year: 'numeric'
+            });
         }
-
+        
         async function carregarNoticias() {
             const container = document.getElementById('news-container');
-            if(SCRIPT_URL === 'COLE_AQUI_A_URL_DO_GOOGLE_SCRIPT') {
-                container.innerHTML = '<p style="text-align: center; color: var(--gold-500);">⚠️ O desenvolvedor precisa inserir a URL do Google Script no HTML.</p>';
-                return;
-            }
-
+            
             try {
-                const resposta = await fetch(SCRIPT_URL);
-                const noticias = await resposta.json();
-
-                if(noticias.length === 0) {
-                    container.innerHTML = '<p style="text-align: center;">Nenhuma notícia encontrada.</p>';
-                    return;
+                const response = await fetch(SCRIPT_URL + '?action=getNews');
+                const data = await response.json();
+                
+                if (data.status === 'success' && data.data && data.data.length > 0) {
+                    container.innerHTML = '';
+                    
+                    data.data.forEach((noticia, index) => {
+                        const delayClass = 'stagger-' + ((index % 6) + 1);
+                        
+                        const div = document.createElement('div');
+                        div.className = `news-list-item reveal ${delayClass}`;
+                        
+                        div.innerHTML = `
+                            <div class="news-date"><i class="fa-regular fa-calendar"></i> ${formatarData(noticia.pubDate)}</div>
+                            <h3><a href="${noticia.link}" target="_blank">${noticia.title}</a></h3>
+                            <p>${noticia.description}</p>
+                            <a href="${noticia.link}" target="_blank" class="read-more">Ler notícia completa <i class="fa-solid fa-arrow-right"></i></a>
+                        `;
+                        
+                        container.appendChild(div);
+                    });
+                    
+                    // Trigger reveal for dynamically loaded elements
+                    setTimeout(() => {
+                        document.querySelectorAll('.news-list-item').forEach(el => {
+                            el.classList.add('active');
+                        });
+                    }, 100);
+                } else {
+                    container.innerHTML = '<p class="loading-container">Nenhuma notícia encontrada no momento.</p>';
                 }
-
-                container.innerHTML = ''; // Limpa o loading
-
-                noticias.forEach((noticia, index) => {
-                    const item = document.createElement('div');
-                    item.className = 'news-list-item reveal';
-                    if (index < 3) item.classList.add('active'); // Para animações
-
-                    item.innerHTML = `
-                        <span class="news-date"><i class="fa-regular fa-calendar"></i> ${formatarData(noticia.data)}</span>
-                        <h3>${noticia.titulo || 'Sem Título'}</h3>
-                        <p>${noticia.resumo || ''}</p>
-                        <a href="artigo.html?id=${noticia.id}" class="read-more">Ler matéria completa <i class="fa-solid fa-arrow-right"></i></a>
-                    `;
-                    container.appendChild(item);
-                });
             } catch (error) {
-                container.innerHTML = '<p style="text-align: center; color: red;">Erro ao carregar notícias. Tente novamente mais tarde.</p>';
-                console.error(error);
+                console.error('Erro ao carregar notícias:', error);
+                container.innerHTML = '<p class="loading-container" style="color: #ef4444;"><i class="fa-solid fa-triangle-exclamation"></i> Ocorreu um erro ao carregar as notícias. Tente novamente mais tarde.</p>';
             }
         }
-
+        
         document.addEventListener('DOMContentLoaded', carregarNoticias);
     </script>
 </body>
