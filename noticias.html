@@ -187,6 +187,20 @@
         // Defina a URL gerada no Google Apps Script aqui (WebApp URL)
         const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyK0BkBo6kklNjmNPV7wHRUzRSc8_sL4r95e6gVfhemsS6OYtiVUzCpNqLwA0wTCwpm/exec';
 
+        function formatarData(dataIso) {
+            if(!dataIso) return '';
+            try {
+                const d = new Date(dataIso);
+                if (isNaN(d.getTime())) return dataIso;
+                const dia = String(d.getUTCDate()).padStart(2, '0');
+                const mes = String(d.getUTCMonth() + 1).padStart(2, '0');
+                const ano = d.getUTCFullYear();
+                return `${dia}/${mes}/${ano}`;
+            } catch(e) {
+                return dataIso;
+            }
+        }
+
         async function carregarNoticias() {
             const container = document.getElementById('news-container');
             if(SCRIPT_URL === 'COLE_AQUI_A_URL_DO_GOOGLE_SCRIPT') {
@@ -211,7 +225,7 @@
                     if (index < 3) item.classList.add('active'); // Para animações
 
                     item.innerHTML = `
-                        <span class="news-date"><i class="fa-regular fa-calendar"></i> ${noticia.data || ''}</span>
+                        <span class="news-date"><i class="fa-regular fa-calendar"></i> ${formatarData(noticia.data)}</span>
                         <h3>${noticia.titulo || 'Sem Título'}</h3>
                         <p>${noticia.resumo || ''}</p>
                         <a href="artigo.html?id=${noticia.id}" class="read-more">Ler matéria completa <i class="fa-solid fa-arrow-right"></i></a>
