@@ -305,6 +305,10 @@ input, textarea {
 .navbar-brand .brand-logo {
   height: 55px;
   width: auto;
+  background-color: var(--white);
+  padding: 4px 8px;
+  border-radius: 6px;
+  box-shadow: 0 0 10px rgba(255,255,255,0.1);
 }
 
 .navbar-brand .brand-text {
@@ -1551,6 +1555,10 @@ input, textarea {
 .footer-brand .footer-logo {
   height: 60px;
   width: auto;
+  background-color: var(--white);
+  padding: 4px 8px;
+  border-radius: 6px;
+  box-shadow: 0 0 10px rgba(255,255,255,0.1);
   margin-bottom: 1rem;
 }
 

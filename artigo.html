@@ -71,7 +71,7 @@
     <!-- News List -->
     <section class="section page-content">
         <div class="container">
-            <div id="article-container" style="max-width: 900px; margin: 0 auto; min-height: 400px; text-align: left; background: var(--navy-800); padding: var(--space-2xl); border-radius: var(--radius-lg); box-shadow: var(--shadow-md);">
+            <div id="article-container" style="max-width: 900px; width: 100%; box-sizing: border-box; margin: 0 auto; min-height: 400px; text-align: left; background: var(--navy-800); padding: 5%; border-radius: var(--radius-lg); box-shadow: var(--shadow-md);">
                 <p style="text-align: center; font-size: 1.2rem; color: var(--gold-500); padding: 3rem 0;">
                     <i class="fa-solid fa-circle-notch fa-spin"></i> Buscando a matéria...
                 </p>
@@ -241,7 +241,7 @@
                 
                 // Formata o artigo e adiciona botões de compartilhamento
                 let html = `
-                    <div style="font-size: 1.05rem; line-height: 1.8; color: var(--gray-200); margin-bottom: 2rem;">
+                    <div style="font-size: 1.05rem; line-height: 1.8; color: var(--gray-200); margin-bottom: 2rem; width: 100%; overflow-x: hidden;">
                         ${artigo.conteudo}
                     </div>
                     
