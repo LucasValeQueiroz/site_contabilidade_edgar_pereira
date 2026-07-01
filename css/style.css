@@ -303,8 +303,10 @@ input, textarea {
 }
 
 .navbar-brand .brand-logo {
-  height: 55px;
+  max-height: 55px;
   width: auto;
+  max-width: 220px;
+  object-fit: contain;
   background-color: var(--white);
   padding: 4px 8px;
   border-radius: 6px;
@@ -1553,8 +1555,10 @@ input, textarea {
 }
 
 .footer-brand .footer-logo {
-  height: 60px;
+  max-height: 60px;
   width: auto;
+  max-width: 250px;
+  object-fit: contain;
   background-color: var(--white);
   padding: 4px 8px;
   border-radius: 6px;
@@ -1898,6 +1902,11 @@ input, textarea {
 
   .top-bar-contact {
     display: none;
+  }
+
+  .navbar-brand .brand-logo {
+    max-width: 150px;
+    max-height: 45px;
   }
 
   .menu-toggle {
