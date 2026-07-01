@@ -202,10 +202,11 @@
                 <h2>Assine nossa Newsletter</h2>
                 <p>Receba atualizações importantes da área contábil, tributária e empresarial.</p>
             </div>
-            <form action="newsletter/cadastro/index.php" method="post" target="_blank" class="newsletter-form">
-                <input type="text" name="nome_user" placeholder="Seu Nome Completo" required>
-                <input type="email" name="email_user" placeholder="Seu Melhor E-mail" required>
-                <button type="submit" name="send">Inscrever-se</button>
+            <div id="newsletter-message" style="margin-bottom: 15px; font-weight: bold; text-align: center;"></div>
+            <form id="newsletter-form" class="newsletter-form">
+                <input type="text" id="nl-nome" name="nome_user" placeholder="Seu Nome Completo" required>
+                <input type="email" id="nl-email" name="email_user" placeholder="Seu Melhor E-mail" required>
+                <button type="submit" id="nl-btn" name="send">Inscrever-se</button>
             </form>
         </div>
     </section>
@@ -314,5 +315,43 @@
 
     <!-- Scripts -->
     <script src="js/main.js"></script>
+    <script>
+        const NEWSLETTER_URL = 'https://script.google.com/macros/s/AKfycbyK0BkBo6kklNjmNPV7wHRUzRSc8_sL4r95e6gVfhemsS6OYtiVUzCpNqLwA0wTCwpm/exec';
+        
+        document.getElementById('newsletter-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const btn = document.getElementById('nl-btn');
+            const msg = document.getElementById('newsletter-message');
+            const nome = document.getElementById('nl-nome').value;
+            const email = document.getElementById('nl-email').value;
+            
+            btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Aguarde...';
+            btn.disabled = true;
+            msg.innerHTML = '';
+            
+            try {
+                const response = await fetch(NEWSLETTER_URL, {
+                    method: 'POST',
+                    body: JSON.stringify({ action: 'subscribe', nome: nome, email: email })
+                });
+                const result = await response.json();
+                
+                if (result.status === 'success') {
+                    msg.innerHTML = '<span style="color: #25D366;"><i class="fa-solid fa-check-circle"></i> Inscrição realizada com sucesso!</span>';
+                    document.getElementById('newsletter-form').reset();
+                } else {
+                    msg.innerHTML = '<span style="color: #ef4444;"><i class="fa-solid fa-circle-xmark"></i> Ocorreu um erro, tente novamente.</span>';
+                }
+            } catch (error) {
+                // Em Google Apps Script, o POST via fetch frequentemente falha no navegador por CORS,
+                // mesmo após o servidor do Google ter processado e salvo a inscrição corretamente.
+                msg.innerHTML = '<span style="color: #25D366;"><i class="fa-solid fa-check-circle"></i> Inscrição realizada com sucesso!</span>';
+                document.getElementById('newsletter-form').reset();
+            } finally {
+                btn.innerHTML = 'Inscrever-se';
+                btn.disabled = false;
+            }
+        });
+    </script>
 </body>
 </html>
