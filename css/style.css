@@ -298,6 +298,17 @@ input, textarea {
 
 .navbar-brand {
   display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.navbar-brand .brand-logo {
+  height: 55px;
+  width: auto;
+}
+
+.navbar-brand .brand-text {
+  display: flex;
   flex-direction: column;
 }
 
@@ -1535,6 +1546,12 @@ input, textarea {
   grid-template-columns: 2fr 1fr 1fr;
   gap: var(--space-3xl);
   margin-bottom: var(--space-2xl);
+}
+
+.footer-brand .footer-logo {
+  height: 60px;
+  width: auto;
+  margin-bottom: 1rem;
 }
 
 .footer-brand .brand-name {

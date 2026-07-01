@@ -63,18 +63,22 @@
             <div class="breadcrumb">
                 <a href="index.html">Home</a> <i class="fa-solid fa-chevron-right" style="font-size: 0.7em;"></i> <span>Notícias</span>
             </div>
-            <h1 class="hero-title">Notícias <span>Empresariais</span></h1>
-            <p class="hero-description">Mantenha-se informado com as novidades da área contábil atualizadas diariamente.</p>
+            <h1 class="hero-title" id="article-title">Carregando Notícia...</h1>
+            <p class="hero-description" id="article-date"></p>
         </div>
     </header>
 
     <!-- News List -->
     <section class="section page-content">
         <div class="container">
-            <div id="news-container" class="news-list" style="max-width: 900px; margin: 0 auto; min-height: 400px; text-align: center;">
-                <p style="font-size: 1.2rem; color: var(--gold-500); padding: 3rem 0;">
-                    <i class="fa-solid fa-circle-notch fa-spin"></i> Carregando destaques diários...
+            <div id="article-container" style="max-width: 900px; margin: 0 auto; min-height: 400px; text-align: left; background: var(--navy-800); padding: var(--space-2xl); border-radius: var(--radius-lg); box-shadow: var(--shadow-md);">
+                <p style="text-align: center; font-size: 1.2rem; color: var(--gold-500); padding: 3rem 0;">
+                    <i class="fa-solid fa-circle-notch fa-spin"></i> Buscando a matéria...
                 </p>
+            </div>
+            
+            <div style="max-width: 900px; margin: 2rem auto 0; text-align: center;">
+                <a href="noticias.html" class="btn btn-outline"><i class="fa-solid fa-arrow-left"></i> Voltar para Notícias</a>
             </div>
         </div>
     </section>
@@ -187,44 +191,64 @@
         // Defina a URL gerada no Google Apps Script aqui (WebApp URL)
         const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyK0BkBo6kklNjmNPV7wHRUzRSc8_sL4r95e6gVfhemsS6OYtiVUzCpNqLwA0wTCwpm/exec';
 
-        async function carregarNoticias() {
-            const container = document.getElementById('news-container');
+        async function carregarArtigo() {
+            const container = document.getElementById('article-container');
+            const titleEl = document.getElementById('article-title');
+            const dateEl = document.getElementById('article-date');
+
             if(SCRIPT_URL === 'COLE_AQUI_A_URL_DO_GOOGLE_SCRIPT') {
                 container.innerHTML = '<p style="text-align: center; color: var(--gold-500);">⚠️ O desenvolvedor precisa inserir a URL do Google Script no HTML.</p>';
                 return;
             }
 
-            try {
-                const resposta = await fetch(SCRIPT_URL);
-                const noticias = await resposta.json();
+            // Pega o ID da URL (?id=...)
+            const urlParams = new URLSearchParams(window.location.search);
+            const id = urlParams.get('id');
 
-                if(noticias.length === 0) {
-                    container.innerHTML = '<p style="text-align: center;">Nenhuma notícia encontrada.</p>';
+            if(!id) {
+                container.innerHTML = '<p style="text-align: center;">Notícia não encontrada.</p>';
+                titleEl.innerText = "Erro";
+                return;
+            }
+
+            try {
+                const resposta = await fetch(`${SCRIPT_URL}?id=${id}`);
+                const artigo = await resposta.json();
+
+                if(!artigo || !artigo.titulo) {
+                    container.innerHTML = '<p style="text-align: center;">Notícia não encontrada ou indisponível.</p>';
+                    titleEl.innerText = "Erro 404";
                     return;
                 }
 
-                container.innerHTML = ''; // Limpa o loading
+                // Atualiza Header
+                titleEl.innerText = artigo.titulo;
+                dateEl.innerHTML = `<i class="fa-regular fa-calendar"></i> Publicado em ${artigo.data || ''}`;
+                
+                // Formata o artigo
+                let html = `
+                    <div style="font-size: 1.05rem; line-height: 1.8; color: var(--gray-200); margin-bottom: 2rem;">
+                        ${artigo.conteudo}
+                    </div>
+                    
+                    <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--glass-border);">
+                        <h4 style="color: var(--gold-500); margin-bottom: 1rem;"><i class="fa-solid fa-link"></i> Fontes Consultadas pela IA</h4>
+                        <div style="font-size: 0.9rem; color: var(--gray-400);">
+                            ${artigo.fontes}
+                        </div>
+                    </div>
+                `;
 
-                noticias.forEach((noticia, index) => {
-                    const item = document.createElement('div');
-                    item.className = 'news-list-item reveal';
-                    if (index < 3) item.classList.add('active'); // Para animações
-
-                    item.innerHTML = `
-                        <span class="news-date"><i class="fa-regular fa-calendar"></i> ${noticia.data || ''}</span>
-                        <h3>${noticia.titulo || 'Sem Título'}</h3>
-                        <p>${noticia.resumo || ''}</p>
-                        <a href="artigo.html?id=${noticia.id}" class="read-more">Ler matéria completa <i class="fa-solid fa-arrow-right"></i></a>
-                    `;
-                    container.appendChild(item);
-                });
+                container.innerHTML = html;
+                
             } catch (error) {
-                container.innerHTML = '<p style="text-align: center; color: red;">Erro ao carregar notícias. Tente novamente mais tarde.</p>';
+                container.innerHTML = '<p style="text-align: center; color: red;">Erro ao carregar o artigo. Tente novamente mais tarde.</p>';
+                titleEl.innerText = "Erro";
                 console.error(error);
             }
         }
 
-        document.addEventListener('DOMContentLoaded', carregarNoticias);
+        document.addEventListener('DOMContentLoaded', carregarArtigo);
     </script>
 </body>
 </html>
