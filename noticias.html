@@ -216,20 +216,20 @@
                 const response = await fetch(SCRIPT_URL + '?action=getNews');
                 const data = await response.json();
                 
-                if (data.status === 'success' && data.data && data.data.length > 0) {
+                if (Array.isArray(data) && data.length > 0) {
                     container.innerHTML = '';
                     
-                    data.data.forEach((noticia, index) => {
+                    data.forEach((noticia, index) => {
                         const delayClass = 'stagger-' + ((index % 6) + 1);
                         
                         const div = document.createElement('div');
                         div.className = `news-list-item reveal ${delayClass}`;
                         
                         div.innerHTML = `
-                            <div class="news-date"><i class="fa-regular fa-calendar"></i> ${formatarData(noticia.pubDate)}</div>
-                            <h3><a href="${noticia.link}" target="_blank">${noticia.title}</a></h3>
-                            <p>${noticia.description}</p>
-                            <a href="${noticia.link}" target="_blank" class="read-more">Ler notícia completa <i class="fa-solid fa-arrow-right"></i></a>
+                            <div class="news-date"><i class="fa-regular fa-calendar"></i> ${formatarData(noticia.data)}</div>
+                            <h3><a href="artigo.html?id=${noticia.id}">${noticia.titulo}</a></h3>
+                            <p>${noticia.resumo}</p>
+                            <a href="artigo.html?id=${noticia.id}" class="read-more">Ler notícia completa <i class="fa-solid fa-arrow-right"></i></a>
                         `;
                         
                         container.appendChild(div);
