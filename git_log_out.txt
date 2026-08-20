@@ -1,0 +1,11 @@
+commit 119ebf11a45187c2f7195d131bf4c8f3534c4655
+Author: Lucas Vale Queiroz <lucasvale2004@gmail.com>
+Date:   Thu Aug 20 20:10:53 2026 -0300
+
+    update
+
+commit fe1fa8ebd5667e3698bf4f9669f9444414737e6a
+Author: Lucas Vale Queiroz <lucasvale2004@gmail.com>
+Date:   Wed Jul 1 16:36:41 2026 -0300
+
+    Redesign Premium completo do site e ajustes de texto

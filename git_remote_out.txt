@@ -1,0 +1,2 @@
+origin	https://github.com/LucasValeQueiroz/site_contabilidade_edgar_pereira (fetch)
+origin	https://github.com/LucasValeQueiroz/site_contabilidade_edgar_pereira (push)
