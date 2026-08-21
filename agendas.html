@@ -57,8 +57,9 @@
         </div>
     </nav>
 
-    <!-- FullCalendar CSS/JS -->
+    <!-- FullCalendar & SweetAlert CSS/JS -->
     <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.js'></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
         :root {
             --fc-page-bg-color: transparent;
@@ -186,7 +187,31 @@
                 contentHeight: 800,
                 aspectRatio: 2.5,
                 dayMaxEventRows: 5,
-                events: []
+                events: [],
+                eventDidMount: function(info) {
+                    // Adiciona o tooltip nativo do navegador para o hover no desktop
+                    info.el.setAttribute('title', info.event.title);
+                },
+                eventClick: function(info) {
+                    info.jsEvent.preventDefault(); // Impede o redirecionamento automático
+                    
+                    Swal.fire({
+                        title: 'Detalhes da Obrigação',
+                        text: info.event.title,
+                        icon: 'info',
+                        showCancelButton: true,
+                        confirmButtonText: 'Ver Mais Detalhes',
+                        cancelButtonText: 'Fechar',
+                        confirmButtonColor: '#d4af37', // gold-400
+                        cancelButtonColor: '#162a4a',  // navy-600
+                        background: '#060d1f',         // navy-900
+                        color: '#e2e8f0'               // gray-200
+                    }).then((result) => {
+                        if (result.isConfirmed && info.event.url) {
+                            window.open(info.event.url, '_blank');
+                        }
+                    });
+                }
             });
             calendar.render();
 
