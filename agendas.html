@@ -60,13 +60,31 @@
     <!-- FullCalendar CSS/JS -->
     <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.js'></script>
     <style>
-        .fc-theme-standard td, .fc-theme-standard th, .fc-theme-standard .fc-scrollgrid { border-color: var(--glass-border); }
-        .fc { color: var(--gray-200); }
-        .fc .fc-button-primary { background-color: var(--navy-700); border-color: var(--navy-600); }
-        .fc .fc-button-primary:not(:disabled):active, .fc .fc-button-primary:not(:disabled).fc-button-active { background-color: var(--gold-600); border-color: var(--gold-500); }
-        .fc-day-today { background-color: rgba(212, 175, 55, 0.1) !important; }
-        .fc-event { border: none; padding: 2px 4px; border-radius: 4px; cursor: pointer; transition: transform 0.2s; }
+        :root {
+            --fc-page-bg-color: transparent;
+            --fc-neutral-bg-color: var(--navy-800);
+            --fc-neutral-text-color: var(--gray-200);
+            --fc-border-color: rgba(255, 255, 255, 0.1);
+            --fc-button-text-color: #fff;
+            --fc-button-bg-color: var(--navy-700);
+            --fc-button-border-color: var(--navy-600);
+            --fc-button-hover-bg-color: var(--gold-600);
+            --fc-button-hover-border-color: var(--gold-500);
+            --fc-button-active-bg-color: var(--gold-700);
+            --fc-button-active-border-color: var(--gold-600);
+            --fc-event-bg-color: var(--gold-600);
+            --fc-event-border-color: var(--gold-500);
+            --fc-event-text-color: var(--navy-950);
+            --fc-today-bg-color: rgba(212, 175, 55, 0.15);
+            --fc-highlight-color: rgba(212, 175, 55, 0.1);
+        }
+        
+        .fc { color: var(--gray-200); font-family: var(--font-body); }
+        .fc-theme-standard th { background: var(--navy-800); padding: 10px 0; font-weight: 600; color: var(--gold-400); }
+        .fc-theme-standard td, .fc-theme-standard th, .fc-theme-standard .fc-scrollgrid { border-color: var(--fc-border-color); }
+        .fc-event { padding: 2px 4px; border-radius: 4px; cursor: pointer; transition: transform 0.2s; font-size: 0.85em; }
         .fc-event:hover { transform: scale(1.02); }
+        .fc-daygrid-more-link { color: var(--gold-400) !important; font-weight: bold; }
         
         .state-selector {
             background: var(--navy-800);
@@ -80,9 +98,7 @@
             margin-bottom: 20px;
             outline: none;
         }
-        .state-selector:focus {
-            border-color: var(--gold-500);
-        }
+        .state-selector:focus { border-color: var(--gold-500); }
     </style>
 
     <!-- Page Header -->
@@ -160,6 +176,7 @@
                     center: '',
                     right: 'today prev,next dayGridMonth,listMonth',
                 },
+                titleFormat: { year: 'numeric', month: 'short' },
                 buttonText: {
                     today: "Hoje",
                     month: "Mês",
@@ -167,6 +184,8 @@
                 },
                 height: 'auto',
                 contentHeight: 'auto',
+                aspectRatio: 2.5,
+                dayMaxEventRows: 5,
                 events: []
             });
             calendar.render();
