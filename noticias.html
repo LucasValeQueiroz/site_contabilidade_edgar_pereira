@@ -101,9 +101,9 @@
             <h2>Assine nossa Newsletter</h2>
             <p style="margin-bottom: 2.5rem; font-size: 1.1rem; line-height: 1.6;">Receba diretamente em seu e-mail as principais atualizações contábeis, dicas empresariais e avisos sobre prazos fiscais para manter seu negócio sempre em dia.</p>
             
-            <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Inscrição realizada com sucesso! Em breve você receberá nossas novidades.'); this.reset();" style="display: flex; gap: 1rem; max-width: 550px; margin: 0 auto; flex-wrap: wrap; justify-content: center;">
-                <input type="email" placeholder="Digite seu melhor e-mail..." required style="flex: 1 1 250px; padding: 1.2rem 1.5rem; border: none; border-radius: 4px; font-size: 1rem; outline: none; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-                <button type="submit" class="btn" style="background-color: var(--primary); color: white; border: none; padding: 1.2rem 2.5rem; border-radius: 4px; cursor: pointer; font-weight: 600; font-size: 1rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+            <form id="newsletter-form" class="newsletter-form" style="display: flex; gap: 1rem; max-width: 550px; margin: 0 auto; flex-wrap: wrap; justify-content: center;">
+                <input type="email" id="newsletter-email" placeholder="Digite seu melhor e-mail..." required style="flex: 1 1 250px; padding: 1.2rem 1.5rem; border: none; border-radius: 4px; font-size: 1rem; outline: none; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                <button type="submit" id="newsletter-btn" class="btn" style="background-color: var(--primary); color: white; border: none; padding: 1.2rem 2.5rem; border-radius: 4px; cursor: pointer; font-weight: 600; font-size: 1rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
                     Assinar <i class="fa-solid fa-paper-plane" style="margin-left: 0.5rem;"></i>
                 </button>
             </form>
@@ -268,7 +268,50 @@
             }
         }
         
-        document.addEventListener('DOMContentLoaded', carregarNoticias);
+        document.addEventListener('DOMContentLoaded', () => {
+            carregarNoticias();
+            
+            const formNewsletter = document.getElementById('newsletter-form');
+            if (formNewsletter) {
+                formNewsletter.addEventListener('submit', async function(e) {
+                    e.preventDefault();
+                    
+                    const emailInput = document.getElementById('newsletter-email');
+                    const btn = document.getElementById('newsletter-btn');
+                    const email = emailInput.value.trim();
+                    
+                    if (!email) return;
+                    
+                    const originalBtnHtml = btn.innerHTML;
+                    btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Assinando...';
+                    btn.disabled = true;
+                    
+                    try {
+                        const response = await fetch(SCRIPT_URL, {
+                            method: 'POST',
+                            mode: 'no-cors',
+                            headers: {
+                                'Content-Type': 'text/plain',
+                            },
+                            body: JSON.stringify({
+                                action: 'subscribe',
+                                nome: 'Inscrito Site',
+                                email: email
+                            })
+                        });
+                        
+                        alert('Inscrição realizada com sucesso! Você passará a receber nossas atualizações.');
+                        formNewsletter.reset();
+                    } catch (error) {
+                        console.error('Erro na inscrição:', error);
+                        alert('Ocorreu um erro ao tentar realizar a inscrição. Por favor, tente novamente.');
+                    } finally {
+                        btn.innerHTML = originalBtnHtml;
+                        btn.disabled = false;
+                    }
+                });
+            }
+        });
     </script>
 </body>
 </html>
