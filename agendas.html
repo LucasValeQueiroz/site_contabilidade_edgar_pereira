@@ -79,7 +79,8 @@
             --fc-highlight-color: rgba(212, 175, 55, 0.1);
         }
         
-        .fc { color: var(--gray-200); font-family: var(--font-body); }
+        .fc { color: var(--gray-200); font-family: var(--font-body); width: 100%; }
+        .fc table { width: 100% !important; border-collapse: collapse !important; table-layout: fixed !important; }
         .fc-theme-standard th { background: var(--navy-800); padding: 10px 0; font-weight: 600; color: var(--gold-400); }
         .fc-theme-standard td, .fc-theme-standard th, .fc-theme-standard .fc-scrollgrid { border-color: var(--fc-border-color); }
         .fc-event { padding: 2px 4px; border-radius: 4px; cursor: pointer; transition: transform 0.2s; font-size: 0.85em; }
@@ -110,8 +111,8 @@
     </header>
 
     <section class="section">
-        <div class="container">
-            <div style="background: var(--navy-900); border: 1px solid var(--glass-border); border-radius: 12px; padding: 30px; box-shadow: var(--shadow-md);">
+        <div class="container" style="display: block; width: 100%;">
+            <div style="background: var(--navy-900); border: 1px solid var(--glass-border); border-radius: 12px; padding: 30px; box-shadow: var(--shadow-md); width: 100%;">
                 
                 <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; margin-bottom: 20px;">
                     <h2 style="color: var(--gold-400); margin: 0;">Calendário Estadual</h2>
