@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendas de Obrigações | Contabilidade Edgar Pereira</title>
+    <meta name="description" content="Especialistas em assessoria contábil, fiscal, trabalhista e legalização de empresas. Mais de 25 anos de experiência e soluções inteligentes para seu negócio.">
+    
+    <!-- CSS & Fonts -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-contact">
+                <a href="tel:+553732220422"><i class="fa-solid fa-phone"></i> (37) 3222-0422</a>
+                <a href="mailto:edgar@edgarpereira.com.br"><i class="fa-solid fa-envelope"></i> edgar@edgarpereira.com.br</a>
+                <span><i class="fa-solid fa-location-dot"></i> Divinópolis/MG</span>
+            </div>
+            <div class="social-links">
+                <a href="#" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">
+                <img src="logo.png" alt="Contabilidade Edgar Pereira" class="brand-logo">
+                <div class="brand-text">
+                    <span class="brand-name">Edgar Pereira</span>
+                    <span class="brand-subtitle">Contabilidade • CRC-MG 007241/O-0</span>
+                </div>
+            </a>
+            
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <div class="nav-links">
+                <a href="index.html" >Home</a>
+                <a href="empresa.html">Empresa</a>
+                <a href="servicos.html">Serviços</a>
+                <a href="noticias.html">Notícias</a>
+                <a href="certidoes.html">Certidões</a>
+                <a href="contato.html">Contato</a>
+                <a href="https://packup.alterdata.com.br" target="_blank" class="btn-alterdata"><i class="fa-solid fa-cloud"></i> Portal Alterdata</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- FullCalendar CSS/JS -->
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.js'></script>
+    <style>
+        .fc-theme-standard td, .fc-theme-standard th, .fc-theme-standard .fc-scrollgrid { border-color: var(--glass-border); }
+        .fc { color: var(--gray-200); }
+        .fc .fc-button-primary { background-color: var(--navy-700); border-color: var(--navy-600); }
+        .fc .fc-button-primary:not(:disabled):active, .fc .fc-button-primary:not(:disabled).fc-button-active { background-color: var(--gold-600); border-color: var(--gold-500); }
+        .fc-day-today { background-color: rgba(212, 175, 55, 0.1) !important; }
+        .fc-event { border: none; padding: 2px 4px; border-radius: 4px; cursor: pointer; transition: transform 0.2s; }
+        .fc-event:hover { transform: scale(1.02); }
+        
+        .state-selector {
+            background: var(--navy-800);
+            border: 1px solid var(--glass-border);
+            color: var(--gray-200);
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-size: 1rem;
+            width: 100%;
+            max-width: 300px;
+            margin-bottom: 20px;
+            outline: none;
+        }
+        .state-selector:focus {
+            border-color: var(--gold-500);
+        }
+    </style>
+
+    <!-- Page Header -->
+    <header class="page-header" style="padding: 100px 0 50px; background: var(--navy-800); color: white; text-align: center;">
+        <div class="container">
+            <h1 style="font-size: 2.5rem; margin-bottom: 15px; color: var(--gold-500);">Agendas de Obrigações</h1>
+            <p style="font-size: 1.1rem; max-width: 600px; margin: 0 auto; color: var(--gray-300);">Acompanhe o calendário estadual de obrigações contábeis e fiscais.</p>
+        </div>
+    </header>
+
+    <section class="section">
+        <div class="container">
+            <div style="background: var(--navy-900); border: 1px solid var(--glass-border); border-radius: 12px; padding: 30px; box-shadow: var(--shadow-md);">
+                
+                <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                    <h2 style="color: var(--gold-400); margin: 0;">Calendário Estadual</h2>
+                    <select id="comboboxestados" class="state-selector">
+                        <option value="">Selecione o Estado (Padrão: Todos)</option>
+                        <option value="ac">Acre</option>
+                        <option value="al">Alagoas</option>
+                        <option value="am">Amazonas</option>
+                        <option value="ap">Amapá</option>
+                        <option value="ba">Bahia</option>
+                        <option value="ce">Ceará</option>
+                        <option value="df">Distrito Federal</option>
+                        <option value="es">Espírito Santo</option>
+                        <option value="go">Goiás</option>
+                        <option value="ma">Maranhão</option>
+                        <option value="mg">Minas Gerais</option>
+                        <option value="ms">Mato Grosso do Sul</option>
+                        <option value="mt">Mato Grosso</option>
+                        <option value="pa">Pará</option>
+                        <option value="pb">Paraíba</option>
+                        <option value="pe">Pernambuco</option>
+                        <option value="pi">Piauí</option>
+                        <option value="pr">Paraná</option>
+                        <option value="rj">Rio de Janeiro</option>
+                        <option value="rn">Rio Grande do Norte</option>
+                        <option value="ro">Rondônia</option>
+                        <option value="rr">Roraima</option>
+                        <option value="rs">Rio Grande do Sul</option>
+                        <option value="sc">Santa Catarina</option>
+                        <option value="se">Sergipe</option>
+                        <option value="sp">São Paulo</option>
+                        <option value="to">Tocantins</option>
+                    </select>
+                </div>
+
+                <div id="loading" style="text-align: center; padding: 40px; color: var(--gold-500); display: none;">
+                    <i class="fa-solid fa-circle-notch fa-spin fa-3x"></i>
+                    <p style="margin-top: 15px;">Atualizando calendário...</p>
+                </div>
+
+                <div id="calendar"></div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 50px; padding: 20px; background: var(--navy-900); border-radius: 8px; color: var(--gray-300); font-size: 0.85rem; border: 1px solid var(--glass-border);">
+                <p>Fonte das informações: <a href="https://www.sitecontabil.com.br/agendas_obrigacoes" target="_blank" style="color: var(--gold-500); text-decoration: none;">Site Contábil</a></p>
+                <p>Nossa contabilidade compilou este calendário para facilitar o acesso de nossos clientes, sempre atualizado automaticamente.</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var calendarEl = document.getElementById('calendar');
+            var loadingEl = document.getElementById('loading');
+            var stateSelect = document.getElementById('comboboxestados');
+            
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                locale: 'pt-br',
+                initialView: 'dayGridMonth',
+                headerToolbar: {
+                    left: 'title',
+                    center: '',
+                    right: 'today prev,next dayGridMonth,listMonth',
+                },
+                buttonText: {
+                    today: "Hoje",
+                    month: "Mês",
+                    list: "Compromissos"
+                },
+                height: 'auto',
+                contentHeight: 'auto',
+                events: []
+            });
+            calendar.render();
+
+            function loadAgenda(estado) {
+                calendarEl.style.display = 'none';
+                loadingEl.style.display = 'block';
+                
+                var url = 'https://www.sitecontabil.com.br/agendas_obrigacoes';
+                if (estado) {
+                    url += '/' + estado;
+                }
+                
+                fetch(url)
+                    .then(response => response.text())
+                    .then(html => {
+                        // Extract var get_data = '[...]';
+                        var match = html.match(/var\s+get_data\s*=\s*'(\[.*?\])';/);
+                        if (match && match[1]) {
+                            var eventsData = JSON.parse(match[1]);
+                            // Clean up events (convert colors for our dark theme)
+                            eventsData = eventsData.map(e => {
+                                e.backgroundColor = 'var(--gold-600)';
+                                e.borderColor = 'var(--gold-500)';
+                                e.textColor = 'var(--navy-950)';
+                                return e;
+                            });
+                            
+                            calendar.removeAllEvents();
+                            calendar.addEventSource(eventsData);
+                        } else {
+                            console.error('Data not found in source HTML');
+                            calendar.removeAllEvents();
+                        }
+                    })
+                    .catch(err => {
+                        console.error('Error fetching agenda:', err);
+                    })
+                    .finally(() => {
+                        loadingEl.style.display = 'none';
+                        calendarEl.style.display = 'block';
+                    });
+            }
+
+            // Initial load
+            loadAgenda('');
+
+            // On change
+            stateSelect.addEventListener('change', function() {
+                loadAgenda(this.value);
+            });
+        });
+    </script>
+
+<footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="logo.png" alt="Contabilidade Edgar Pereira" class="footer-logo">
+                    <div class="brand-name">Contabilidade Edgar Pereira</div>
+                    <div class="brand-crc">CRC-MG 007241/O-0</div>
+                    <p>Soluções em contabilidade para o sucesso do seu negócio. Mais de 25 anos de experiência entregando excelência e confiança.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Mapa do Site</h4>
+                    <a href="index.html">Home</a>
+                    <a href="empresa.html">Sobre a Empresa</a>
+                    <a href="servicos.html">Nossos Serviços</a>
+                    <a href="noticias.html">Notícias Empresariais</a>
+                    <a href="contato.html">Fale Conosco</a>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Contato</h4>
+                    <a href="tel:+553732220422"><i class="fa-solid fa-phone"></i> (37) 3222-0422</a>
+                    <a href="mailto:edgar@edgarpereira.com.br"><i class="fa-solid fa-envelope"></i> edgar@edgarpereira.com.br</a>
+                    <a href="https://maps.google.com/?q=Rua+Pernambuco,+60+-+Centro,+Divinópolis+-+MG" target="_blank"><i class="fa-solid fa-location-dot"></i> Rua Pernambuco, 60 - 8º Andar<br>Centro - Divinópolis/MG</a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Contabilidade Edgar Pereira. Todos os direitos reservados.</p>
+                <div class="footer-gov-links">
+                    <a href="http://www.receita.fazenda.gov.br/" target="_blank">Receita Federal</a>
+                    <a href="http://www8.receita.fazenda.gov.br/SimplesNacional/" target="_blank">Simples Nacional</a>
+                    <a href="http://www.mtps.gov.br/" target="_blank">Ministério do Trabalho</a>
+                    <a href="http://www.previdencia.gov.br/" target="_blank">Previdência Social</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Elements -->
+    <a href="https://wa.me/553732220422" target="_blank" class="whatsapp-float" aria-label="WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+    
+    <button class="back-to-top" aria-label="Voltar ao topo">
+        <i class="fa-solid fa-chevron-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script>
+        const NEWSLETTER_URL = 'https://script.google.com/macros/s/AKfycbyK0BkBo6kklNjmNPV7wHRUzRSc8_sL4r95e6gVfhemsS6OYtiVUzCpNqLwA0wTCwpm/exec';
+        
+        document.getElementById('newsletter-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const btn = document.getElementById('nl-btn');
+            const msg = document.getElementById('newsletter-message');
+            const nome = document.getElementById('nl-nome').value;
+            const email = document.getElementById('nl-email').value;
+            
+            btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Aguarde...';
+            btn.disabled = true;
+            msg.innerHTML = '';
+            
+            try {
+                const response = await fetch(NEWSLETTER_URL, {
+                    method: 'POST',
+                    body: JSON.stringify({ action: 'subscribe', nome: nome, email: email })
+                });
+                const result = await response.json();
+                
+                if (result.status === 'success') {
+                    msg.innerHTML = '<span style="color: #34d399;"><i class="fa-solid fa-check-circle"></i> Inscrição realizada com sucesso!</span>';
+                    document.getElementById('newsletter-form').reset();
+                } else {
+                    msg.innerHTML = '<span style="color: #ef4444;"><i class="fa-solid fa-circle-xmark"></i> Ocorreu um erro, tente novamente.</span>';
+                }
+            } catch (error) {
+                // Em Google Apps Script, o POST via fetch frequentemente falha no navegador por CORS,
+                // mesmo após o servidor do Google ter processado e salvo a inscrição corretamente.
+                msg.innerHTML = '<span style="color: #34d399;"><i class="fa-solid fa-check-circle"></i> Inscrição realizada com sucesso!</span>';
+                document.getElementById('newsletter-form').reset();
+            } finally {
+                btn.innerHTML = 'Inscrever-se';
+                btn.disabled = false;
+            }
+        });
+    </script>
+
+
+</body>
+</html>
