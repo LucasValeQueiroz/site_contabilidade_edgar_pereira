@@ -56,7 +56,6 @@
             </div>
         </div>
     </nav>
-    
     <style>
         .page-content-area {
             background: var(--navy-900);
@@ -65,77 +64,22 @@
             padding: 30px;
             box-shadow: var(--shadow-md);
         }
-        .page-content-area h2 {
-            color: var(--gold-400);
-            font-size: 1.4rem;
-            padding: 10px 15px;
-            background: var(--navy-800);
-            border-left: 4px solid var(--gold-500);
-            border-radius: 5px;
-            margin: 25px 0 15px 0;
-        }
-        .page-content-area h3, .page-content-area h4 {
-            color: var(--gold-400);
-            margin: 15px 0 10px 0;
-        }
-        .page-content-area strong {
-            color: var(--gold-400);
-        }
-        .page-content-area a {
-            color: var(--gold-500);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        .page-content-area a:hover {
-            color: var(--gold-300);
-            text-decoration: underline;
-        }
-        .page-content-area p {
-            color: var(--gray-300);
-            line-height: 1.8;
-            margin-bottom: 10px;
-        }
-        .page-content-area hr {
-            border: none;
-            border-top: 1px solid var(--glass-border);
-            margin: 20px 0;
-        }
-        .page-content-area .row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
-        @media (max-width: 768px) {
-            .page-content-area .row {
-                grid-template-columns: 1fr;
-            }
-        }
-        .loading-area {
-            text-align: center;
-            padding: 60px;
-            color: var(--gold-500);
-        }
-        .loading-area i {
-            font-size: 3rem;
-            margin-bottom: 15px;
-        }
+        .page-content-area a { color: var(--gold-500); text-decoration: none; transition: color 0.3s; }
+        .page-content-area a:hover { color: var(--gold-300); text-decoration: underline; }
+        .page-content-area p { color: var(--gray-300); line-height: 1.8; }
+        .page-content-area h2 { color: var(--gold-400); }
+        .page-content-area strong { color: var(--gold-400); }
+        .page-content-area hr { border: none; border-top: 1px solid var(--glass-border); margin: 25px 0; }
+        .row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        @media (max-width: 768px) { .row { grid-template-columns: 1fr; } }
         .source-info {
-            text-align: center;
-            margin-top: 30px;
-            padding: 15px;
-            background: var(--navy-900);
-            border-radius: 8px;
-            color: var(--gray-400);
-            font-size: 0.85rem;
+            text-align: center; margin-top: 30px; padding: 15px;
+            background: var(--navy-900); border-radius: 8px;
+            color: var(--gray-400); font-size: 0.85rem;
             border: 1px solid var(--glass-border);
         }
-        .source-info a {
-            color: var(--gold-500);
-            text-decoration: none;
-        }
+        .source-info a { color: var(--gold-500); text-decoration: none; }
     </style>
-
-
     <header class="page-header" style="padding: 100px 0 50px; background: var(--navy-800); text-align: center;">
         <div class="container" style="display: block;">
             <i class="fa-solid fa-file-lines" style="font-size: 2.5rem; color: var(--gold-400); margin-bottom: 15px;"></i>
@@ -147,52 +91,19 @@
     <section class="section">
         <div class="container" style="display: block; width: 100%;">
             <div class="page-content-area">
-                <div id="loading" class="loading-area">
-                    <i class="fa-solid fa-circle-notch fa-spin"></i>
-                    <p>Carregando conteúdo atualizado...</p>
-                </div>
-                <div id="content" style="display: none;"></div>
+                
+		            
+												<h2 style="color: var(--gold-400); font-size: 1.4rem; padding: 10px 15px; background: var(--navy-800); border-left: 4px solid var(--gold-500); border-radius: 5px; margin: 25px 0 15px 0;">Formulários</h2>
+				                <p style="color: var(--gray-300); line-height: 1.8; margin-bottom: 10px;"><a style="color: var(--gold-500); text-decoration: none;" target="_blank" rel="noopener" href="https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/formularios" target="_blank" rel="noopener">- Formul&aacute;rios da Receita Federal</a><br /><a style="color: var(--gold-500); text-decoration: none;" target="_blank" rel="noopener" href="http://www.previdencia.gov.br/servicos-ao-cidadao/informacoes-gerais/formularios-solicitados-pelo-inss/" target="_blank" rel="noopener">- Formul&aacute;rios do INSS</a></p>                    <hr style="border: none; border-top: 1px solid var(--glass-border); margin: 25px 0;">
+                												<h2 style="color: var(--gold-400); font-size: 1.4rem; padding: 10px 15px; background: var(--navy-800); border-left: 4px solid var(--gold-500); border-radius: 5px; margin: 25px 0 15px 0;">Diversos</h2>
+				                <p style="color: var(--gray-300); line-height: 1.8; margin-bottom: 10px;"><a style="color: var(--gold-500); text-decoration: none;" target="_blank" rel="noopener" href="../../../uploads/Instrucao.doc" target="_blank" rel="noopener">- Instru&ccedil;&atilde;o DARF</a><br /><a style="color: var(--gold-500); text-decoration: none;" target="_blank" rel="noopener" href="../../../uploads/darf_comum.html" target="_blank" rel="noopener">- DARF Comum</a><br /><a style="color: var(--gold-500); text-decoration: none;" target="_blank" rel="noopener" href="https://www8.receita.fazenda.gov.br/SimplesNacional/controleAcesso/Autentica.aspx?id=6" target="_blank" rel="noopener">- DAS</a><br /><a style="color: var(--gold-500); text-decoration: none;" target="_blank" rel="noopener" href="../../../uploads/redarf.doc" target="_blank" rel="noopener">- REDARF</a><br /><a style="color: var(--gold-500); text-decoration: none;" target="_blank" rel="noopener" href="https://cav.receita.fazenda.gov.br/eCAC/publico/login.aspx" target="_blank" rel="noopener">- REDARF (on-line)</a><br /><a style="color: var(--gold-500); text-decoration: none;" target="_blank" rel="noopener" href="../../../uploads/formulario_gps.html" target="_blank" rel="noopener">- G.P.S</a><br /><a style="color: var(--gold-500); text-decoration: none;" target="_blank" rel="noopener" href="../../../uploads/termo_rescisao.pdf" target="_blank" rel="noopener">- Termo de Rescis&atilde;o do Contrato de Trabalho</a><br /><a style="color: var(--gold-500); text-decoration: none;" target="_blank" rel="noopener" href="../../../uploads/termo_homologacao_rescisao.pdf" target="_blank" rel="noopener">- Termo de Homologa&ccedil;&atilde;o do Contrato de Trabalho</a><br /><a style="color: var(--gold-500); text-decoration: none;" target="_blank" rel="noopener" href="../../../uploads/termo_quitacao_rescisao.pdf" target="_blank" rel="noopener">- Termo de Quita&ccedil;&atilde;o do Contrato de Trabalho</a><br /><a style="color: var(--gold-500); text-decoration: none;" target="_blank" rel="noopener" href="http://www.controlenanet.com.br/rpa/rpa.php" target="_blank" rel="noopener">- Emiss&atilde;o de RPA (Recibo de Pagamento a Aut&ocirc;nomo)</a><br /><a style="color: var(--gold-500); text-decoration: none;" target="_blank" rel="noopener" href="../../../materias/como-preencher-o-novo-trct---termo-de-rescisao-de-contrato-de-trabalho" target="_blank" rel="noopener">- Como preencher o novo TRCT</a><br /><a style="color: var(--gold-500); text-decoration: none;" target="_blank" rel="noopener" href="../../../uploads/fichaderegistro2.pdf" target="_blank" rel="noopener">- Cadastro de Admiss&atilde;o</a><br /><a style="color: var(--gold-500); text-decoration: none;" target="_blank" rel="noopener" href="../../../uploads/controle-folha-mod-25.pdf" target="_blank" rel="noopener">- Controle de Folha Mensal</a><br /><a style="color: var(--gold-500); text-decoration: none;" target="_blank" rel="noopener" href="../../../uploads/escala-de-revezamento-mod-18.pdf" target="_blank" rel="noopener">- Escala de Revezamento</a><br /><a style="color: var(--gold-500); text-decoration: none;" target="_blank" rel="noopener" href="../../../uploads/livroponto2.pdf" target="_blank" rel="noopener">- Livro Ponto</a><br /><a style="color: var(--gold-500); text-decoration: none;" target="_blank" rel="noopener" href="../../../uploads/advertenciaporfalta2.pdf" target="_blank" rel="noopener">- Advert&ecirc;ncia por Falta</a><br /><a style="color: var(--gold-500); text-decoration: none;" target="_blank" rel="noopener" href="../../../uploads/advertenciadisciplinar2.pdf" target="_blank" rel="noopener">- Advert&ecirc;ncia Disciplinar</a><br /><a style="color: var(--gold-500); text-decoration: none;" target="_blank" rel="noopener" href="../../../uploads/FICHA-REGISTRO-FUNCIONARIOS.doc" target="_blank" rel="noopener">- Ficha de Registro de Funcion&aacute;rios</a></p>					    
             </div>
-            
             <div class="source-info">
-                <p>Fonte das informações: <a href="https://www.sitecontabil.com.br/formularios/" target="_blank">Site Contábil</a> — Conteúdo atualizado automaticamente.</p>
+                <p>Fonte: <a href="https://www.sitecontabil.com.br/formularios/" target="_blank">Site Contábil</a></p>
             </div>
         </div>
     </section>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            fetch('https://www.sitecontabil.com.br/formularios/')
-                .then(r => r.text())
-                .then(html => {
-                    var parser = new DOMParser();
-                    var doc = parser.parseFromString(html, 'text/html');
-                    var content = doc.querySelector('.text-default');
-                    if (content) {
-                        // Fix links to open in new tabs
-                        content.querySelectorAll('a').forEach(a => {
-                            a.setAttribute('target', '_blank');
-                            a.setAttribute('rel', 'noopener');
-                        });
-                        // Remove any inline styles that conflict
-                        content.querySelectorAll('[style]').forEach(el => {
-                            el.removeAttribute('style');
-                        });
-                        document.getElementById('content').innerHTML = content.innerHTML;
-                        document.getElementById('content').style.display = 'block';
-                    } else {
-                        document.getElementById('content').innerHTML = '<p style="color: var(--gray-400); text-align: center;">Conteúdo indisponível no momento. <a href="https://www.sitecontabil.com.br/formularios/" target="_blank" style="color: var(--gold-500);">Acesse diretamente</a>.</p>';
-                        document.getElementById('content').style.display = 'block';
-                    }
-                    document.getElementById('loading').style.display = 'none';
-                })
-                .catch(err => {
-                    document.getElementById('loading').innerHTML = '<p style="color: var(--gray-400);">Erro ao carregar. <a href="https://www.sitecontabil.com.br/formularios/" target="_blank" style="color: var(--gold-500);">Acesse diretamente</a>.</p>';
-                });
-        });
-    </script>
-
-    <footer class="footer">
+<footer class="footer">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">

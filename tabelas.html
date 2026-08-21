@@ -56,7 +56,6 @@
             </div>
         </div>
     </nav>
-    
     <style>
         .page-content-area {
             background: var(--navy-900);
@@ -65,77 +64,22 @@
             padding: 30px;
             box-shadow: var(--shadow-md);
         }
-        .page-content-area h2 {
-            color: var(--gold-400);
-            font-size: 1.4rem;
-            padding: 10px 15px;
-            background: var(--navy-800);
-            border-left: 4px solid var(--gold-500);
-            border-radius: 5px;
-            margin: 25px 0 15px 0;
-        }
-        .page-content-area h3, .page-content-area h4 {
-            color: var(--gold-400);
-            margin: 15px 0 10px 0;
-        }
-        .page-content-area strong {
-            color: var(--gold-400);
-        }
-        .page-content-area a {
-            color: var(--gold-500);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        .page-content-area a:hover {
-            color: var(--gold-300);
-            text-decoration: underline;
-        }
-        .page-content-area p {
-            color: var(--gray-300);
-            line-height: 1.8;
-            margin-bottom: 10px;
-        }
-        .page-content-area hr {
-            border: none;
-            border-top: 1px solid var(--glass-border);
-            margin: 20px 0;
-        }
-        .page-content-area .row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
-        @media (max-width: 768px) {
-            .page-content-area .row {
-                grid-template-columns: 1fr;
-            }
-        }
-        .loading-area {
-            text-align: center;
-            padding: 60px;
-            color: var(--gold-500);
-        }
-        .loading-area i {
-            font-size: 3rem;
-            margin-bottom: 15px;
-        }
+        .page-content-area a { color: var(--gold-500); text-decoration: none; transition: color 0.3s; }
+        .page-content-area a:hover { color: var(--gold-300); text-decoration: underline; }
+        .page-content-area p { color: var(--gray-300); line-height: 1.8; }
+        .page-content-area h2 { color: var(--gold-400); }
+        .page-content-area strong { color: var(--gold-400); }
+        .page-content-area hr { border: none; border-top: 1px solid var(--glass-border); margin: 25px 0; }
+        .row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        @media (max-width: 768px) { .row { grid-template-columns: 1fr; } }
         .source-info {
-            text-align: center;
-            margin-top: 30px;
-            padding: 15px;
-            background: var(--navy-900);
-            border-radius: 8px;
-            color: var(--gray-400);
-            font-size: 0.85rem;
+            text-align: center; margin-top: 30px; padding: 15px;
+            background: var(--navy-900); border-radius: 8px;
+            color: var(--gray-400); font-size: 0.85rem;
             border: 1px solid var(--glass-border);
         }
-        .source-info a {
-            color: var(--gold-500);
-            text-decoration: none;
-        }
+        .source-info a { color: var(--gold-500); text-decoration: none; }
     </style>
-
-
     <header class="page-header" style="padding: 100px 0 50px; background: var(--navy-800); text-align: center;">
         <div class="container" style="display: block;">
             <i class="fa-solid fa-table" style="font-size: 2.5rem; color: var(--gold-400); margin-bottom: 15px;"></i>
@@ -147,52 +91,25 @@
     <section class="section">
         <div class="container" style="display: block; width: 100%;">
             <div class="page-content-area">
-                <div id="loading" class="loading-area">
-                    <i class="fa-solid fa-circle-notch fa-spin"></i>
-                    <p>Carregando conteúdo atualizado...</p>
-                </div>
-                <div id="content" style="display: none;"></div>
+                
+		            
+												<h2 style="color: var(--gold-400); font-size: 1.4rem; padding: 10px 15px; background: var(--navy-800); border-left: 4px solid var(--gold-500); border-radius: 5px; margin: 25px 0 15px 0;">Tabelas</h2>
+				                <p style="color: var(--gray-300); line-height: 1.8; margin-bottom: 10px;"><a style="color: var(--gold-500); text-decoration: none;" target="_blank" rel="noopener" href="https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/legislacao/documentos-e-arquivos/tipi.pdf" target="_blank" rel="noopener">- Downloads dos arquivos da Tabela TIPI</a><br /><a style="color: var(--gold-500); text-decoration: none;" target="_blank" rel="noopener" href="https://www.gov.br/pt-br/servicos/consultar-restituicao-de-imposto-de-renda" target="_blank" rel="noopener">- Restitui&ccedil;&otilde;es do Imposto de Renda</a><br /><a style="color: var(--gold-500); text-decoration: none;" target="_blank" rel="noopener" href="https://www.gov.br/receitafederal/pt-br/assuntos/orientacao-tributaria/pagamentos-e-parcelamentos/codigos-de-receita/codigos-de-receita-de-contribuicao-previdenciaria" target="_blank" rel="noopener">- C&oacute;digos de Recolhimento do INSS</a><br /><a style="color: var(--gold-500); text-decoration: none;" target="_blank" rel="noopener" href="http://www.cnae.ibge.gov.br/" target="_blank" rel="noopener">- C&oacute;digo Nacional de Atividades Econ&ocirc;micas</a><br /><a style="color: var(--gold-500); text-decoration: none;" target="_blank" rel="noopener" href="../../../uploads/2ec688b984c83097e818c39370d12ab9.pdf" target="_blank" rel="noopener">- Tabelas de Incid&ecirc;ncia INSS/FGTS/IRRF</a><br /><a style="color: var(--gold-500); text-decoration: none;" target="_blank" rel="noopener" href="https://www.gov.br/pt-br/servicos/calcular-aliquota-efetiva-do-imposto-de-renda" target="_blank" rel="noopener">- Al&iacute;quota Efetiva - IRPF</a><br /><a style="color: var(--gold-500); text-decoration: none;" target="_blank" rel="noopener" href="http://www.sitecontabil.com.br/tabelas/tabela_fpas_rat.pdf" target="_blank" rel="noopener">- Tabela FPS e Al&iacute;quota RAT</a><br /><a style="color: var(--gold-500); text-decoration: none;" target="_blank" rel="noopener" href="https://www.gov.br/receitafederal/pt-br/assuntos/meu-imposto-de-renda/tabelas" target="_blank" rel="noopener">- Tabela Progressiva do Imposto de Renda</a></p>                    <hr style="border: none; border-top: 1px solid var(--glass-border); margin: 25px 0;">
+                												<h2 style="color: var(--gold-400); font-size: 1.4rem; padding: 10px 15px; background: var(--navy-800); border-left: 4px solid var(--gold-500); border-radius: 5px; margin: 25px 0 15px 0;">Trabalhista</h2>
+				                <p style="color: var(--gray-300); line-height: 1.8; margin-bottom: 10px;"><a style="color: var(--gold-500); text-decoration: none;" target="_blank" rel="noopener" href="http://www.sitecontabil.com.br/tabelas/Trabalho/1.htm" target="_blank" rel="noopener">-&nbsp;FGTS - Al&iacute;quotas e incid&ecirc;ncia</a><br /><a style="color: var(--gold-500); text-decoration: none;" target="_blank" rel="noopener" href="http://www.sitecontabil.com.br/tabelas/Trabalho/2.htm" target="_blank" rel="noopener">-&nbsp;Tabela de Multas e Infra&ccedil;&otilde;es na Legisla&ccedil;&atilde;o Trabalhista</a><br /><a style="color: var(--gold-500); text-decoration: none;" target="_blank" rel="noopener" href="http://www.guiatrabalhista.com.br/" target="_blank" rel="noopener">- Guia Trabalhista</a><br /><a style="color: var(--gold-500); text-decoration: none;" target="_blank" rel="noopener" href="http://www.guiatrabalhista.com.br/guia/salario_minimo.htm" target="_blank" rel="noopener">- Sal&aacute;rio M&iacute;nimo</a></p>                    <hr style="border: none; border-top: 1px solid var(--glass-border); margin: 25px 0;">
+                												<h2 style="color: var(--gold-400); font-size: 1.4rem; padding: 10px 15px; background: var(--navy-800); border-left: 4px solid var(--gold-500); border-radius: 5px; margin: 25px 0 15px 0;">Recolhimento em atraso</h2>
+				                <p style="color: var(--gray-300); line-height: 1.8; margin-bottom: 10px;"><a style="color: var(--gold-500); text-decoration: none;" target="_blank" rel="noopener" href="https://www.gov.br/receitafederal/pt-br/assuntos/orientacao-tributaria/pagamentos-e-parcelamentos/taxa-de-juros-selic" target="_blank" rel="noopener">- Tabela Mensal - Taxa de Juros SELIC</a><br /><a style="color: var(--gold-500); text-decoration: none;" target="_blank" rel="noopener" href="https://www.caixa.gov.br/site/Paginas/downloads.aspx" target="_blank" rel="noopener">- Tabelas Caixa (Coeficiente, FGTS, Habita&ccedil;&atilde;o, etc.)</a><br /><a style="color: var(--gold-500); text-decoration: none;" target="_blank" rel="noopener" href="https://www.gov.br/receitafederal/pt-br/assuntos/orientacao-tributaria/pagamentos-e-parcelamentos/taxa-de-juros-de-longo-prazo-tjlp/tjlp" target="_blank" rel="noopener">- Tabela Mensal - Taxa de Juros de Longo Prazo</a></p>                    <hr style="border: none; border-top: 1px solid var(--glass-border); margin: 25px 0;">
+                												<h2 style="color: var(--gold-400); font-size: 1.4rem; padding: 10px 15px; background: var(--navy-800); border-left: 4px solid var(--gold-500); border-radius: 5px; margin: 25px 0 15px 0;">Documentos Contábeis - Classificação, Organização e Prazos de Guarda</h2>
+				                <p style="color: var(--gray-300); line-height: 1.8; margin-bottom: 10px;"><a style="color: var(--gold-500); text-decoration: none;" target="_blank" rel="noopener" href="../../../documentos_importantes" target="_blank" rel="noopener">- Documentos Cont&aacute;beis e Documentos Legais</a></p>                    <hr style="border: none; border-top: 1px solid var(--glass-border); margin: 25px 0;">
+                												<h2 style="color: var(--gold-400); font-size: 1.4rem; padding: 10px 15px; background: var(--navy-800); border-left: 4px solid var(--gold-500); border-radius: 5px; margin: 25px 0 15px 0;">Fiscal</h2>
+				                <p style="color: var(--gray-300); line-height: 1.8; margin-bottom: 10px;"><a style="color: var(--gold-500); text-decoration: none;" target="_blank" rel="noopener" href="../../../tabelas/anexos-simples.pdf" target="_blank" rel="noopener">- Anexos do Simples Nacional</a><br /><a style="color: var(--gold-500); text-decoration: none;" target="_blank" rel="noopener" href="https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/acoes-e-programas/facilitacao/anexo-ecf-cfop" target="_blank" rel="noopener">- C&oacute;digo Fiscal de Opera&ccedil;&otilde;es e Presta&ccedil;&otilde;es (CFOP)</a><br /><a style="color: var(--gold-500); text-decoration: none;" target="_blank" rel="noopener" href="http://www.sitecontabil.com.br/tabelas/correlaocstxcrtcsosn_para_LR.pdf" target="_blank" rel="noopener">- Tabela de Correla&ccedil;&atilde;o CST x CSOSN-CRT</a><br /><a style="color: var(--gold-500); text-decoration: none;" target="_blank" rel="noopener" href="http://sped.rfb.gov.br/pasta/show/1616" target="_blank" rel="noopener">- Tabela CST &ndash; PIS e COFINS</a></p>					    
             </div>
-            
             <div class="source-info">
-                <p>Fonte das informações: <a href="https://www.sitecontabil.com.br/tabelas_praticas.htm" target="_blank">Site Contábil</a> — Conteúdo atualizado automaticamente.</p>
+                <p>Fonte: <a href="https://www.sitecontabil.com.br/tabelas_praticas.htm" target="_blank">Site Contábil</a></p>
             </div>
         </div>
     </section>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            fetch('https://www.sitecontabil.com.br/tabelas_praticas.htm')
-                .then(r => r.text())
-                .then(html => {
-                    var parser = new DOMParser();
-                    var doc = parser.parseFromString(html, 'text/html');
-                    var content = doc.querySelector('.text-default');
-                    if (content) {
-                        // Fix links to open in new tabs
-                        content.querySelectorAll('a').forEach(a => {
-                            a.setAttribute('target', '_blank');
-                            a.setAttribute('rel', 'noopener');
-                        });
-                        // Remove any inline styles that conflict
-                        content.querySelectorAll('[style]').forEach(el => {
-                            el.removeAttribute('style');
-                        });
-                        document.getElementById('content').innerHTML = content.innerHTML;
-                        document.getElementById('content').style.display = 'block';
-                    } else {
-                        document.getElementById('content').innerHTML = '<p style="color: var(--gray-400); text-align: center;">Conteúdo indisponível no momento. <a href="https://www.sitecontabil.com.br/tabelas_praticas.htm" target="_blank" style="color: var(--gold-500);">Acesse diretamente</a>.</p>';
-                        document.getElementById('content').style.display = 'block';
-                    }
-                    document.getElementById('loading').style.display = 'none';
-                })
-                .catch(err => {
-                    document.getElementById('loading').innerHTML = '<p style="color: var(--gray-400);">Erro ao carregar. <a href="https://www.sitecontabil.com.br/tabelas_praticas.htm" target="_blank" style="color: var(--gold-500);">Acesse diretamente</a>.</p>';
-                });
-        });
-    </script>
-
-    <footer class="footer">
+<footer class="footer">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
