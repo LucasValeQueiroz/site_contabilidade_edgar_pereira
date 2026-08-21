@@ -191,7 +191,8 @@
             calendar.render();
 
             function loadAgenda(estado) {
-                calendarEl.style.display = 'none';
+                calendarEl.style.opacity = '0.3';
+                calendarEl.style.pointerEvents = 'none';
                 loadingEl.style.display = 'block';
                 
                 var url = 'https://www.sitecontabil.com.br/agendas_obrigacoes';
@@ -202,11 +203,9 @@
                 fetch(url)
                     .then(response => response.text())
                     .then(html => {
-                        // Extract var get_data = '[...]';
                         var match = html.match(/var\s+get_data\s*=\s*'(\[.*?\])';/);
                         if (match && match[1]) {
                             var eventsData = JSON.parse(match[1]);
-                            // Clean up events (convert colors for our dark theme)
                             eventsData = eventsData.map(e => {
                                 e.backgroundColor = 'var(--gold-600)';
                                 e.borderColor = 'var(--gold-500)';
@@ -226,7 +225,9 @@
                     })
                     .finally(() => {
                         loadingEl.style.display = 'none';
-                        calendarEl.style.display = 'block';
+                        calendarEl.style.opacity = '1';
+                        calendarEl.style.pointerEvents = 'auto';
+                        calendar.updateSize();
                     });
             }
 
